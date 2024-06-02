@@ -20,17 +20,17 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from './constants/results.constants';
 import { ADDRESS_TOGGLE_LABEL } from './constants/step2.constants';
 
 const MultiStepForm = () => {
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({} as MultiStepFormData);
   const [formErrors, setFormErrors] = useState<FormErrors>([
     { email: true, password: true },
     { firstName: true, lastName: true, birthday: true },
   ]);
+  const [formSubmitError, setFormSubmitError] = useState(false);
+  const [formSubmitSuccess, setFormSubmitSuccess] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [step, setStep] = useState(1);
   const [showValidation, setShowValidation] = useState(false);
   const [showAddress, setShowAddress] = useState(false);
-  const [formSubmitSuccess, setFormSubmitSuccess] = useState(false);
-  const [formSubmitError, setFormSubmitError] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   /* add/remove address fields from form errors */
   useEffect(() => {

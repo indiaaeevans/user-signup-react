@@ -4,14 +4,10 @@ export interface MultiStepFormData {
   firstName: string;
   lastName: string;
   birthday: string;
-  address?: AddressFormData;
-}
-
-export interface AddressFormData {
-  street: string;
-  city: string;
-  state: string;
-  zip: string;
+  street?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
 }
 
 export type FormErrorStep = {
@@ -19,7 +15,3 @@ export type FormErrorStep = {
 };
 
 export type FormErrors = FormErrorStep[];
-
-// export type MultiStepFormErrors = {
-//   [K in keyof MultiStepFormData]: boolean;
-// };

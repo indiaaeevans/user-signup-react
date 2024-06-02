@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+form {
+  width: 20rem;
+}
+
 label,
 button {
   display: block;
@@ -20,36 +24,27 @@ input + span {
   padding-right: 30px;
 }
 
-/* input:invalid + .validation-status::after {
-  position: absolute;
-  content: '✖';
-  padding-left: 5px;
-} */
-
 input:valid + .validation-status::after {
   position: absolute;
   content: '✓';
   color: green;
   padding-left: 5px;
 }
+
 .validation-message {
   margin-top: 12px;
 }
+
 .required-field {
   color: red;
 }
+
 .microcopy {
   margin-top: 1rem;
   font-size: 10px;
 }
+
 .inline-label {
   display: inline-block;
   margin-right: 0.5rem;
-}
-form {
-  width: 20rem;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; */
 }
