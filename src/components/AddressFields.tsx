@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { StepComponentProps } from '../models/step-component';
 import {
   STREET_LABEL,
   STREET_ERROR_MSG,
@@ -9,18 +10,13 @@ import {
   ZIP_LABEL,
   ZIP_ERROR_MSG,
 } from '../constants/address.constants';
-
-interface AddressFieldsProps {
-  showValidation: boolean;
-  onInputChange: (name: string, value: string) => void;
-  onValidation: (name: string, isValid: boolean) => void;
-}
+import { REQUIRED_FIELD_LABEL } from '../constants/shared.constants';
 
 export default function AddressFields({
   showValidation = false,
   onInputChange,
   onValidation,
-}: AddressFieldsProps) {
+}: StepComponentProps) {
   const [inputValues, setInputValues] = useState({
     street: '',
     city: '',
@@ -55,7 +51,10 @@ export default function AddressFields({
 
   return (
     <>
-      <label htmlFor="street">{STREET_LABEL}</label>
+      <label htmlFor="street">
+        {STREET_LABEL}
+        <span className="required-field">{REQUIRED_FIELD_LABEL}</span>
+      </label>
       <input
         id="street"
         name="street"
@@ -69,7 +68,10 @@ export default function AddressFields({
         <p className="validation-message">{STREET_ERROR_MSG}</p>
       )}
 
-      <label htmlFor="city">{CITY_LABEL}</label>
+      <label htmlFor="city">
+        {CITY_LABEL}
+        <span className="required-field">{REQUIRED_FIELD_LABEL}</span>
+      </label>
       <input
         id="city"
         name="city"
@@ -82,8 +84,11 @@ export default function AddressFields({
       {showValidation && inputErrors.city && (
         <p className="validation-message">{CITY_ERROR_MSG}</p>
       )}
-
-      <label htmlFor="state">{STATE_LABEL}</label>
+      {/* TODO make a select with list of states */}
+      <label htmlFor="state">
+        {STATE_LABEL}
+        <span className="required-field">{REQUIRED_FIELD_LABEL}</span>
+      </label>
       <input
         id="state"
         maxLength={2}
@@ -99,7 +104,10 @@ export default function AddressFields({
         <p className="validation-message">{STATE_ERROR_MSG}</p>
       )}
 
-      <label htmlFor="zip">{ZIP_LABEL}</label>
+      <label htmlFor="zip">
+        {ZIP_LABEL}
+        <span className="required-field">{REQUIRED_FIELD_LABEL}</span>
+      </label>
       <input
         id="zip"
         inputMode="numeric"

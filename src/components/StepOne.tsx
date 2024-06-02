@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { StepComponentProps } from '../models/step-component';
 import { REQUIRED_FIELD_LABEL } from '../constants/shared.constants';
 import {
   EMAIL_LABEL,
@@ -9,17 +10,11 @@ import {
   PASSWORD_ERROR_MSG,
 } from '../constants/step1.constants';
 
-interface StepOneProps {
-  showValidation: boolean;
-  onInputChange: (name: string, value: string) => void;
-  onValidation: (name: string, isValid: boolean) => void;
-}
-
 const StepOne = ({
   showValidation = false,
   onInputChange,
   onValidation,
-}: StepOneProps) => {
+}: StepComponentProps) => {
   const [inputValues, setInputValues] = useState({
     email: '',
     password: '',
@@ -35,8 +30,7 @@ const StepOne = ({
   ) => {
     const { name, value } = event.target;
     const isValid = event.target.validity.valid;
-    console.log('name:', name);
-    console.log('isValid:', isValid);
+
     setInputValues((prevValues) => ({
       ...prevValues,
       [name]: value,

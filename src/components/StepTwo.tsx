@@ -8,21 +8,17 @@ import {
   BIRTHDAY_LABEL,
   BIRTHDAY_ERROR_MSG,
 } from '../constants/step2.constants';
-interface StepTwoProps {
-  showValidation: boolean;
-  onInputChange: (name: string, value: string) => void;
-  onValidation: (name: string, isValid: boolean) => void;
-}
+import { StepComponentProps } from '../models/step-component';
+
 const StepTwo = ({
   showValidation = false,
   onInputChange,
   onValidation,
-}: StepTwoProps) => {
+}: StepComponentProps) => {
   const [inputValues, setInputValues] = useState({
     firstName: '',
     lastName: '',
     birthday: '',
-    // address: null
   });
 
   const [inputErrors, setInputErrors] = useState({
